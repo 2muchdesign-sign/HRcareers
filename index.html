@@ -4,19 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Карьера в Aldo Coppola — вакансии</title>
-<meta name="description" content="Вакансии Aldo Coppola в Москве: стилисты, косметологи, администраторы и офис. Итальянская школа, семь салонов и Академия.">
+<meta name="description" content="Вакансии Aldo Coppola в Москве: стилисты, косметологи и администраторы. Итальянская школа, семь салонов и Академия.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --paper:#FFFFFF;
-  --ivory:#F6F3EF;
-  --sand:#ECE7E1;
-  --blush:#F8E9E7;
-  --ink:#1C1A19;
-  --muted:#6B6763;
-  --line:rgba(28,26,25,.13);
+  --ivory:#F4F3F1;        /* палитра — как на лендинге «Топ-стилист» v2 */
+  --sand:#E6E4E1;
+  --ink:#141414;
+  --muted:#686664;
+  --line:rgba(20,20,20,.13);
   --red:#C8102E;          /* фирменный красный Aldo Coppola — как на лендинге */
   --red-deep:#A50D26;
   --on-red:#FFFFFF;
@@ -99,9 +98,10 @@ h3{font-size:clamp(24px,2.3vw,30px)}
 .hero-card span svg{width:16px;height:16px}
 @media (max-width:900px){
   .hero .txt{padding-bottom:0}
-  .hero-media{min-height:0;aspect-ratio:4/5;margin:0 calc(-1 * var(--gutter))}
-  .hero-media .frame{inset:0}
-  .hero-card{left:var(--gutter);right:var(--gutter);max-width:none;bottom:var(--gutter)}
+  /* без aspect-ratio и absolute: в iOS Safari растянутый grid-элемент с aspect-ratio схлопывался */
+  .hero-media{min-height:0;align-self:auto;width:100%;padding-bottom:var(--gutter)}
+  .hero-media .frame{position:relative;inset:auto;width:100%;height:min(118vw,640px)}
+  .hero-card{position:relative;left:auto;right:auto;bottom:auto;display:block;max-width:none;width:auto;margin:-48px 14px 0}
 }
 
 /* ---------- red band (stats) ---------- */
@@ -127,7 +127,7 @@ h3{font-size:clamp(24px,2.3vw,30px)}
 
 /* ---------- carousel (как на лендинге) ---------- */
 .carousel{position:relative;--ratio:4/5;--per:1}
-.carousel .track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+.carousel .track{display:flex;align-items:flex-start;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
 .carousel .track::-webkit-scrollbar{display:none}
 .slide{flex:0 0 calc((100% - (var(--per) - 1) * 14px) / var(--per));scroll-snap-align:start;aspect-ratio:var(--ratio);position:relative;overflow:hidden;background:var(--sand);cursor:zoom-in;border-radius:var(--radius)}
 .slide img,.slide video{width:100%;height:100%;object-fit:cover;transition:transform .6s}
@@ -153,7 +153,6 @@ h3{font-size:clamp(24px,2.3vw,30px)}
 @media (max-width:700px){.carousel.story{--per:1.6}}
 
 /* ---------- виртуальный тур (блок с лендинга Indoor TV) ---------- */
-.sec.blush{background:var(--blush)}
 .tr-viewport{overflow:hidden}
 .tr-track{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:0 max(var(--gutter), calc((100vw - var(--wrap)) / 2 + var(--gutter)))}
 .tr-track::-webkit-scrollbar{display:none}
@@ -199,7 +198,7 @@ h3{font-size:clamp(24px,2.3vw,30px)}
 .full-bleed .cnav{padding-right:var(--gutter)}
 
 /* ---------- lightbox ---------- */
-.lb{position:fixed;inset:0;background:rgba(246,243,239,.97);z-index:100;display:none;align-items:center;justify-content:center;padding:56px 16px}
+.lb{position:fixed;inset:0;background:rgba(244,243,241,.97);z-index:100;display:none;align-items:center;justify-content:center;padding:56px 16px}
 .lb.on{display:flex}
 .lb .stage{max-width:min(1200px,100%);max-height:100%;display:flex;align-items:center;justify-content:center}
 .lb img,.lb video{max-height:calc(100vh - 112px);max-width:100%;object-fit:contain;box-shadow:0 20px 60px rgba(0,0,0,.18)}
@@ -248,7 +247,7 @@ h3{font-size:clamp(24px,2.3vw,30px)}
 .bens{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
 .bens div{padding:32px 28px 34px 0;border-bottom:1px solid var(--line)}
 .bens div:not(:nth-child(3n+1)){padding-left:28px;border-left:1px solid var(--line)}
-.bens i{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--blush);color:var(--red);font-style:normal;margin-bottom:18px}
+.bens i{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid rgba(200,16,46,.35);color:var(--red);font-style:normal;margin-bottom:18px}
 .bens i svg{width:22px;height:22px}
 .bens b{display:block;font-family:var(--serif);font-size:25px;font-weight:500;line-height:1.15;margin-bottom:8px}
 .bens span{color:var(--muted);font-size:15.5px}
@@ -264,6 +263,78 @@ h3{font-size:clamp(24px,2.3vw,30px)}
 .route span{font-size:15px;color:var(--muted)}
 @media (max-width:800px){.route{grid-template-columns:1fr 1fr;gap:28px 0}}
 @media (max-width:520px){.route{grid-template-columns:1fr}}
+
+/* ---------- clients ---------- */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kpis div{padding:30px 24px 30px 0}
+.kpis div + div{padding-left:24px;border-left:1px solid var(--line)}
+.kpis b{display:block;white-space:nowrap;font-family:var(--serif);font-size:clamp(34px,3.6vw,50px);font-weight:500;line-height:1;color:var(--red)}
+.kpis span{display:block;margin-top:10px;font-size:14.5px;color:var(--muted);max-width:15em}
+@media (max-width:1000px){.kpis{grid-template-columns:1fr 1fr}.kpis div:nth-child(3){padding-left:0;border-left:0}.kpis div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+.note{font-size:13px;color:var(--muted);margin:14px 0 0}
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,44px);margin-top:clamp(40px,5vw,64px)}
+.cols3 div{border-top:2px solid var(--red);padding-top:20px}
+.cols3 b{display:block;font-family:var(--serif);font-size:25px;font-weight:500;line-height:1.15;margin-bottom:8px}
+.cols3 span{color:var(--muted);font-size:15.5px}
+@media (max-width:800px){.cols3{grid-template-columns:1fr}}
+
+/* ---------- team ---------- */
+.grid2.top{align-items:start}
+
+/* ---------- salons grid ---------- */
+.salons{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:clamp(48px,6vw,80px)}
+@media (max-width:1000px){.salons{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.salons{grid-template-columns:1fr}}
+.salon{background:var(--paper);border:1px solid var(--line);display:flex;flex-direction:column}
+.salon img{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--sand)}
+.salon .in{padding:18px 20px 22px;display:flex;flex-direction:column;gap:6px;flex:1}
+.salon small{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:700}
+.salon h3{font-size:26px}
+.salon p{margin:0;font-size:14.5px;color:var(--muted)}
+.salon .addr{margin-top:auto;padding-top:10px;font-size:13.5px;color:var(--ink)}
+.salon.cta{background:var(--red);border-color:var(--red);color:#fff;justify-content:space-between;padding:24px 22px;text-decoration:none;transition:background .25s}
+.salon.cta:hover{background:var(--red-deep)}
+.salon.cta h3{font-size:clamp(26px,2.4vw,32px)}
+.salon.cta p{color:var(--on-red-muted)}
+.salon.cta .go{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;display:flex;align-items:center;gap:8px}
+.salon.cta .go svg{width:16px;height:16px}
+
+/* ---------- comfort ---------- */
+.two-lists{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,80px)}
+.two-lists .points{margin-top:6px}
+@media (max-width:900px){.two-lists{grid-template-columns:1fr}}
+.list-h{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--red);margin:0 0 6px}
+.carousel.tri{--per:3}
+@media (max-width:900px){.carousel.tri{--per:1.3}}
+
+/* ---------- red plate (развитие) ---------- */
+.sec.red{background:var(--red);color:#fff}
+.sec.red .eyebrow,.sec.red h2 em{color:#fff}
+.sec.red .lead,.sec.red .cols3 span{color:var(--on-red-muted)}
+.cols3.on-red{margin-top:0}
+.cols3.on-red div{border-top-color:#fff}
+.ladder{margin-top:clamp(48px,6vw,72px)}
+.ladder .list-h{color:#fff;margin-bottom:18px}
+.ladder ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);counter-reset:l}
+.ladder li{counter-increment:l;padding:22px 22px 0 0;border-top:1px solid var(--line-red);position:relative}
+.ladder li + li{padding-left:22px;border-left:1px solid var(--line-red)}
+.ladder li::before{content:counter(l,decimal-leading-zero);display:block;font-family:var(--serif);font-style:italic;font-size:18px;color:var(--on-red-muted);margin-bottom:8px}
+.ladder b{display:block;font-family:var(--serif);font-size:clamp(24px,2.4vw,30px);font-weight:500;line-height:1.1;margin-bottom:6px}
+.ladder span{font-size:14.5px;color:var(--on-red-muted)}
+@media (max-width:800px){.ladder ol{grid-template-columns:1fr 1fr;gap:24px 0}.ladder li:nth-child(3){padding-left:0;border-left:0}}
+@media (max-width:480px){.ladder ol{grid-template-columns:1fr}.ladder li + li{padding-left:0;border-left:0}}
+.red-note{margin:clamp(40px,5vw,56px) 0 0;font-size:14.5px;color:var(--on-red-muted)}
+.red-note a{color:#fff;text-decoration:none;border-bottom:1px solid var(--line-red)}
+.red-note a:hover{border-color:#fff}
+
+/* ---------- stories ---------- */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media (max-width:900px){.quotes{grid-template-columns:1fr}}
+.quotes figure{margin:0;background:var(--paper);border:1px solid var(--line);padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;justify-content:space-between;gap:28px}
+.quotes blockquote{margin:0;font-family:var(--serif);font-size:clamp(22px,2vw,26px);line-height:1.25}
+.quotes figcaption{display:flex;align-items:center;gap:14px;font-size:13.5px;color:var(--muted)}
+.quotes figcaption i{width:44px;height:44px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-style:normal;font-family:var(--serif);font-size:22px;flex:none}
+.quotes figcaption b{display:block;color:var(--ink);font-weight:600;font-size:15px}
 
 /* ---------- final cta ---------- */
 .cta-red{background:var(--red);color:#fff;padding:clamp(64px,8vw,110px) 0;position:relative;overflow:hidden}
@@ -287,7 +358,7 @@ footer a{color:var(--ink)}
 /* ---------- mobile sticky cta ---------- */
 .m-cta{display:none}
 @media (max-width:700px){
-  .m-cta{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:40;box-shadow:0 10px 30px rgba(165,13,38,.3);transform:translateY(130%);transition:transform .35s}
+  .m-cta{display:flex;border-color:rgba(255,255,255,.75);position:fixed;left:12px;right:12px;bottom:12px;z-index:40;box-shadow:0 10px 30px rgba(165,13,38,.3);transform:translateY(130%);transition:transform .35s}
   .m-cta.on{transform:none}
   .hdr .btn{display:none}
 }
@@ -326,11 +397,11 @@ body.draft .tbd{background:rgba(255,196,0,.3);box-shadow:0 0 0 2px rgba(255,196,
     <a class="logo" href="#top" aria-label="Aldo Coppola — карьера"><img class="mark" id="logoImg" alt="" width="44" height="44"><span class="word">ALDO COPPOLA<small>MOSCOW · CAREER</small></span></a>
     <nav class="nav" aria-label="Разделы">
       <a href="#about">О бренде</a>
-      <a href="#life">Жизнь бренда</a>
-      <a href="#tour">Салоны</a>
       <a href="#vacancies">Вакансии</a>
-      <a href="#benefits">Условия</a>
-      <a href="#hiring">Как мы нанимаем</a>
+      <a href="#salons">Салоны</a>
+      <a href="#comfort">Условия</a>
+      <a href="#growth">Развитие</a>
+      <a href="#stories">Отзывы</a>
     </nav>
     <a class="btn sm" href="#vacancies">Открытые вакансии</a>
   </div>
@@ -343,7 +414,7 @@ body.draft .tbd{background:rgba(255,196,0,.3);box-shadow:0 0 0 2px rgba(255,196,
       <div class="txt">
         <p class="eyebrow">Карьера в Aldo Coppola</p>
         <h1>Создавайте красоту <em style="white-space:nowrap">по&#8209;итальянски</em></h1>
-        <p class="lead">Итальянская школа, семь салонов в Москве и Подмосковье и Академия в Милане. Ищем мастеров, косметологов, администраторов и специалистов офиса, которым близок премиальный сервис.</p>
+        <p class="lead">Итальянская школа, семь салонов в Москве и Подмосковье и Академия в Милане. Ищем стилистов, косметологов и администраторов, которым близок премиальный сервис.</p>
         <div class="ctas">
           <a class="btn" href="#vacancies">Смотреть вакансии</a>
           <a class="btn line" href="#about">Сначала о бренде</a>
@@ -367,10 +438,10 @@ body.draft .tbd{background:rgba(255,196,0,.3);box-shadow:0 0 0 2px rgba(255,196,
 <div class="band">
   <div class="wrap">
     <div class="stats">
-      <div><b>60+</b><span>лет итальянской школы</span></div>
-      <div><b>~20</b><span>лет в Москве</span></div>
-      <div><b>7</b><span>салонов в Москве и Подмосковье</span></div>
-      <div><b>Милан</b><span>Академия и обучение для команды</span></div>
+      <div><b>с 1965</b><span>итальянская школа и Академия в Милане</span></div>
+      <div><b>с 1996</b><span>Aldo Coppola в России</span></div>
+      <div><b>7</b><span>салонов: Рублёвка, Новая Рига и центр Москвы</span></div>
+      <div><b>80%</b><span>клиентов сети — постоянные</span></div>
     </div>
   </div>
 </div>
@@ -382,11 +453,11 @@ body.draft .tbd{background:rgba(255,196,0,.3);box-shadow:0 0 0 2px rgba(255,196,
       <div class="rv">
         <p class="eyebrow">О бренде</p>
         <h2>Итальянский дом красоты <em>из&nbsp;Милана</em></h2>
-        <p class="lead">Aldo Coppola — школа, которая вывела причёску на подиум и сделала её частью высокой моды. В Москве бренд работает около 20 лет: салоны в центре, на Рублёвке и Новой Риге, свои линии средств, инструменты и Академия.</p>
+        <p class="lead">Aldo Coppola — школа, которая вывела причёску на подиум и сделала её частью высокой моды. Сегодня это международная сеть: более 100 центров красоты в Милане, Монте-Карло, Дубае, Дохе, Москве и других городах. В России бренд работает с 1996 года.</p>
         <ul class="points">
-          <li><div><b>Премиальный сервис</b><span>Гости, которые ценят мастера и возвращаются к нему годами.</span></div></li>
-          <li><div><b>Профессиональный рост</b><span>Обучение в Академии в Москве и Милане, показы и съёмки.</span></div></li>
-          <li><div><b>Сильная команда</b><span>Стилисты, косметологи, сервис и офис работают как одна команда бренда.</span></div></li>
+          <li><div><b>Имя, которое работает на вас</b><span>Aldo Coppola знают в индустрии, в глянце и в fashion-среде. Принадлежность к бренду — статус, который остаётся с вами.</span></div></li>
+          <li><div><b>Стабильность</b><span>Многие коллеги работают в компании 15–20 лет.</span></div></li>
+          <li><div><b>Своё, а не чужое</b><span>Собственные линии профессиональных средств, запатентованные инструменты и Академия в Милане.</span></div></li>
         </ul>
       </div>
       <div class="about-media rv">
@@ -397,75 +468,8 @@ body.draft .tbd{background:rgba(255,196,0,.3);box-shadow:0 0 0 2px rgba(255,196,
   </div>
 </section>
 
-<!-- ============ ЖИЗНЬ БРЕНДА (карусель) ============ -->
-<section class="sec alt" id="life">
-  <div class="wrap">
-    <div class="head-row rv">
-      <div>
-        <p class="eyebrow">Жизнь бренда</p>
-        <h2>Как это выглядит <em>изнутри</em></h2>
-      </div>
-      <p class="lead">Съёмки, Академия, авторские техники и сервис для гостей. Нажмите на кадр, чтобы открыть его крупно.</p>
-    </div>
-    <div class="full-bleed rv">
-      <div class="carousel story" data-key="life"
-        data-hints="Фото: команда салона перед открытием|Фото: кабинет косметолога|Фото: администратор встречает гостя|Видео: один день в офисе Aldo Coppola"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ ВИРТУАЛЬНЫЙ ТУР (блок с лендинга Indoor TV) ============ -->
-<section class="sec blush" id="tour">
-  <div class="wrap">
-    <div class="head-row rv">
-      <div>
-        <p class="eyebrow">Виртуальный тур</p>
-        <h2>Загляните <em>в&nbsp;салоны</em></h2>
-      </div>
-      <p class="lead">Короткие видео-прогулки по салонам: интерьеры, зоны ожидания и рабочие места мастеров. Здесь вы будете работать.</p>
-    </div>
-  </div>
-
-  <div class="tr-viewport rv">
-    <div class="tr-track" id="tourTrack">
-      <figure class="tr-slide" data-video="media/tour/zhukovka.mp4">
-        <div class="tr-frame"><img src="media/tour/zhukovka.jpg" alt="Салон Aldo Coppola в Жуковке" loading="lazy"><button class="tr-play" type="button" aria-label="Смотреть тур: Жуковка"><span></span></button></div>
-        <figcaption><span class="tr-idx">01</span><span class="tr-name">Жуковка</span><span class="tr-meta">Рублёвка · 1:38</span></figcaption>
-      </figure>
-      <figure class="tr-slide" data-video="media/tour/novinsky.mp4">
-        <div class="tr-frame"><img src="media/tour/novinsky.jpg" alt="Салон Aldo Coppola на Новинском, ВЭБ Центр" loading="lazy"><button class="tr-play" type="button" aria-label="Смотреть тур: Новинский"><span></span></button></div>
-        <figcaption><span class="tr-idx">02</span><span class="tr-name">Новинский</span><span class="tr-meta">ВЭБ Центр · 0:54</span></figcaption>
-      </figure>
-      <figure class="tr-slide" data-video="media/tour/barvikha.mp4">
-        <div class="tr-frame"><img src="media/tour/barvikha.jpg" alt="Салон Aldo Coppola в Барвихе" loading="lazy"><button class="tr-play" type="button" aria-label="Смотреть тур: Барвиха"><span></span></button></div>
-        <figcaption><span class="tr-idx">03</span><span class="tr-name">Барвиха</span><span class="tr-meta">Рублёвка · 1:01</span></figcaption>
-      </figure>
-      <figure class="tr-slide" data-video="media/tour/vesna.mp4">
-        <div class="tr-frame"><img src="media/tour/vesna.jpg" alt="Салон Aldo Coppola в BoscoVesna" loading="lazy"><button class="tr-play" type="button" aria-label="Смотреть тур: Весна"><span></span></button></div>
-        <figcaption><span class="tr-idx">04</span><span class="tr-name">Весна</span><span class="tr-meta">BoscoVesna · 0:34</span></figcaption>
-      </figure>
-    </div>
-  </div>
-
-  <div class="wrap">
-    <div class="tr-nav">
-      <div class="tr-tabs" id="tourTabs">
-        <button type="button" class="on">Жуковка</button>
-        <button type="button">Новинский</button>
-        <button type="button">Барвиха</button>
-        <button type="button">Весна</button>
-      </div>
-      <div class="tr-ctrl">
-        <span class="tr-count" id="tourCount">01 / 04</span>
-        <button type="button" class="tr-arrow" id="tourPrev" aria-label="Предыдущий салон">←</button>
-        <button type="button" class="tr-arrow" id="tourNext" aria-label="Следующий салон">→</button>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ ВАКАНСИИ ============ -->
-<section class="sec" id="vacancies">
+<section class="sec alt" id="vacancies">
   <div class="wrap">
     <div class="head-row rv">
       <div>
@@ -479,8 +483,209 @@ body.draft .tbd{background:rgba(255,196,0,.3);box-shadow:0 0 0 2px rgba(255,196,
   </div>
 </section>
 
+<!-- ============ КЛИЕНТЫ ============ -->
+<section class="sec" id="clients">
+  <div class="wrap">
+    <div class="head-row rv">
+      <div>
+        <p class="eyebrow">Клиенты</p>
+        <h2>Клиенты, с&nbsp;которыми <em>интересно работать</em></h2>
+      </div>
+      <p class="lead">Предприниматели, топ-менеджеры, селебрити, жители Рублёвки и Новой Риги. Многие ходят к своему мастеру годами.</p>
+    </div>
+    <div class="kpis rv">
+      <div><b>5&nbsp;300+</b><span>клиентов пришли в салоны сети в 2026 году</span></div>
+      <div><b>80%</b><span>из них — постоянные</span></div>
+      <div><b>~30&nbsp;000&nbsp;₽</b><span>средний чек</span></div>
+      <div><b>каждый 4-й</b><span>клиент ходит к нам больше 12 лет</span></div>
+    </div>
+    <p class="note rv">Данные сети за январь–сентябрь 2026 года.</p>
+    <div class="cols3 rv">
+      <div><b>Запись, которую не нужно добывать</b><span>Сильная база постоянных клиентов. Администраторы распределяют новых клиентов с учётом специализации мастера.</span></div>
+      <div><b>Деликатность как стандарт</b><span>Многие клиенты публичны. Конфиденциальность для нас базовое правило.</span></div>
+      <div><b>Клиент доверяет салону целиком</b><span>Поэтому мы одинаково строго отбираем стилистов, косметологов, мастеров маникюра и ухода.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ КОМАНДА ============ -->
+<section class="sec alt" id="team">
+  <div class="wrap">
+    <div class="grid2 top">
+      <div class="rv">
+        <p class="eyebrow">Команда</p>
+        <h2>Работать <em>с&nbsp;равными</em></h2>
+        <p class="lead">У нас работают сильные специалисты: одни выросли в компании, другие пришли извне. Уровень у всех высокий, и попасть в такую команду — само по себе важно.</p>
+        <ul class="points">
+          <li><div><b>Итальянские арт-директора в Москве</b><span>Джампаоло Марини (ТЦ BoscoVesna), Альберто Санвидо (Жуковка), Джузеппе Кастальди (ТЦ Времена года), Робертино Роди (Юнимолл), Франческо Монтана — арт-директор Академии в Москве.</span></div></li>
+          <li><div><b>Обмен опытом</b><span>Стилисты, вернувшиеся из Милана, сами учат коллег новым коллекциям. Здесь растут вместе.</span></div></li>
+          <li><div><b>Образ в связке</b><span>В салонах есть эстетическая и врачебная косметология. Стилист и врач-косметолог работают с клиентом вместе.</span></div></li>
+        </ul>
+      </div>
+      <div class="rv">
+        <div class="carousel" data-key="team" data-ratio="4/5"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ САЛОНЫ: ВИРТУАЛЬНЫЙ ТУР + АДРЕСА ============ -->
+<section class="sec" id="salons">
+  <div class="wrap">
+    <div class="head-row rv">
+      <div>
+        <p class="eyebrow">Салоны</p>
+        <h2>Загляните <em>в&nbsp;салоны</em></h2>
+      </div>
+      <p class="lead">Семь адресов на Рублёвке, Новой Риге и в центре Москвы. Интерьеры создавались вместе с Филиппом Старком и Каримом Рашидом. Короткие видео-прогулки: залы, зоны ожидания и рабочие места.</p>
+    </div>
+  </div>
+
+  <div class="tr-viewport rv">
+    <div class="tr-track" id="tourTrack">
+      <figure class="tr-slide" data-file="zhukovka">
+        <div class="tr-frame"><img alt="Салон Aldo Coppola в Жуковке" loading="lazy"><button class="tr-play" type="button" aria-label="Смотреть тур: Жуковка"><span></span></button></div>
+        <figcaption><span class="tr-idx">01</span><span class="tr-name">Жуковка</span><span class="tr-meta">Рублёвка · 1:38</span></figcaption>
+      </figure>
+      <figure class="tr-slide" data-file="novinsky">
+        <div class="tr-frame"><img alt="Салон Aldo Coppola в БЦ ВЭБ РФ" loading="lazy"><button class="tr-play" type="button" aria-label="Смотреть тур: БЦ ВЭБ РФ"><span></span></button></div>
+        <figcaption><span class="tr-idx">02</span><span class="tr-name">БЦ ВЭБ РФ</span><span class="tr-meta">Новинский бульвар · 0:54</span></figcaption>
+      </figure>
+      <figure class="tr-slide" data-file="barvikha">
+        <div class="tr-frame"><img alt="Салон Aldo Coppola в Барвихе" loading="lazy"><button class="tr-play" type="button" aria-label="Смотреть тур: Барвиха"><span></span></button></div>
+        <figcaption><span class="tr-idx">03</span><span class="tr-name">Барвиха</span><span class="tr-meta">Рублёвка · 1:01</span></figcaption>
+      </figure>
+      <figure class="tr-slide" data-file="vesna">
+        <div class="tr-frame"><img alt="Салон Aldo Coppola в ТЦ BoscoVesna" loading="lazy"><button class="tr-play" type="button" aria-label="Смотреть тур: ТЦ BoscoVesna"><span></span></button></div>
+        <figcaption><span class="tr-idx">04</span><span class="tr-name">ТЦ BoscoVesna</span><span class="tr-meta">Новый Арбат · 0:34</span></figcaption>
+      </figure>
+      <figure class="tr-slide" data-file="unimall">
+        <div class="tr-frame"><img alt="Салон Aldo Coppola в Юнимолле" loading="lazy"><button class="tr-play" type="button" aria-label="Смотреть тур: Юнимолл"><span></span></button></div>
+        <figcaption><span class="tr-idx">05</span><span class="tr-name">Юнимолл</span><span class="tr-meta">Новая Рига · 0:27</span></figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="tr-nav">
+      <div class="tr-tabs" id="tourTabs">
+        <button type="button" class="on">Жуковка</button>
+        <button type="button">БЦ ВЭБ РФ</button>
+        <button type="button">Барвиха</button>
+        <button type="button">ТЦ BoscoVesna</button>
+        <button type="button">Юнимолл</button>
+      </div>
+      <div class="tr-ctrl">
+        <span class="tr-count" id="tourCount">01 / 05</span>
+        <button type="button" class="tr-arrow" id="tourPrev" aria-label="Предыдущий салон">←</button>
+        <button type="button" class="tr-arrow" id="tourNext" aria-label="Следующий салон">→</button>
+      </div>
+    </div>
+
+    <div class="salons rv" id="salonGrid"></div>
+  </div>
+</section>
+
+<!-- ============ УСЛОВИЯ В САЛОНЕ ============ -->
+<section class="sec alt" id="comfort">
+  <div class="wrap">
+    <div class="head-row rv">
+      <div>
+        <p class="eyebrow">Рабочее место</p>
+        <h2>Материалы, свет <em>и&nbsp;время на&nbsp;клиента</em></h2>
+      </div>
+      <p class="lead">Для специалиста главное — на чём и в каких условиях он работает. Мы так к этому и относимся.</p>
+    </div>
+    <div class="two-lists rv">
+      <div>
+        <p class="list-h">Для вас</p>
+        <ul class="points">
+          <li><div><b>Материалы люкс-класса</b><span>Собственные линии бренда и Davines, Kevin.Murphy, Wella, Lebel, L'Oréal Professionnel. Материалы предоставляет салон.</span></div></li>
+          <li><div><b>Инструменты и свет</b><span>Запатентованные аксессуары Aldo Coppola. Освещение, близкое к дневному: оттенок на волосах такой же, как на улице.</span></div></li>
+          <li><div><b>Удобное рабочее место</b><span>Своя зона у каждого мастера, без работы локоть к локтю. Вентиляция без запаха химии.</span></div></li>
+          <li><div><b>Команда поддержки</b><span>Администраторы ведут запись, напоминания и переносы. Встреча клиента, напитки и гардероб — тоже на команде.</span></div></li>
+        </ul>
+      </div>
+      <div>
+        <p class="list-h">Для ваших клиентов</p>
+        <ul class="points">
+          <li><div><b>Параллельный сервис</b><span>Aldo Coppola первыми в России предложили параллельное обслуживание: пока вы работаете с волосами, клиенту делают маникюр, SPA-уход или косметологию.</span></div></li>
+          <li><div><b>VIP-кабинет в каждом салоне</b><span>Приватная работа для публичных клиентов и тех, кто ценит тишину.</span></div></li>
+          <li><div><b>Парковка</b><span>Клиенту не нужно искать место и следить за временем.</span></div></li>
+          <li><div><b>Еда и напитки по заказу</b><span>Обед, кофе, чай, вода. Клиент может провести в салоне полдня без дискомфорта.</span></div></li>
+        </ul>
+      </div>
+    </div>
+    <div class="full-bleed rv" style="margin-top:clamp(40px,5vw,64px)">
+      <div class="carousel tri" data-key="comfort" data-ratio="4/5"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ РАЗВИТИЕ (красная плашка) ============ -->
+<section class="sec red" id="growth">
+  <div class="wrap">
+    <div class="head-row rv">
+      <div>
+        <p class="eyebrow">Развитие</p>
+        <h2>От подиума Милана <em>к&nbsp;вашему креслу</em> в&nbsp;Москве</h2>
+      </div>
+      <p class="lead">Мы развиваем всех специалистов. Стилисты Aldo Coppola Россия первыми видят новые коллекции бренда в Милане и привозят их в Москву раньше рынка.</p>
+    </div>
+    <div class="cols3 on-red rv">
+      <div><b>Шоу новых коллекций в Милане</b><span>Дважды в год: презентация трендов на сцене миланского театра, образы на моделях вживую.</span></div>
+      <div><b>Обучение у итальянских мастеров</b><span>Миланская Академия показывает тренды, разработчик рецептур рассказывает о средствах бренда. Каждый возвращается с технологией коллекции в руках.</span></div>
+      <div><b>Академия в Москве</b><span>Вернувшиеся стилисты и арт-директора учат коллег на болванках и живых моделях. Диплом международного образца.</span></div>
+    </div>
+    <div class="ladder rv">
+      <p class="list-h">Путь стилиста внутри сети</p>
+      <ol>
+        <li><b>Топ-стилист</b><span>Сильная запись, сложные услуги, поездки в Милан</span></li>
+        <li><b>Арт-стилист</b><span>Ведущий мастер салона, наставник для команды</span></li>
+        <li><b>Арт-директор</b><span>Стиль и качество салона или направления</span></li>
+        <li><b>Педагог Академии</b><span>Своя программа и своё имя в обучении сети</span></li>
+      </ol>
+    </div>
+    <p class="red-note rv">Академия Aldo Coppola: <a href="mailto:school@aldocoppola.ru">school@aldocoppola.ru</a> · <a href="tel:+74954450021">+7 495 445-00-21</a></p>
+  </div>
+</section>
+
+<!-- ============ ЖИЗНЬ БРЕНДА: ПОКАЗЫ И СЪЁМКИ ============ -->
+<section class="sec" id="life">
+  <div class="wrap">
+    <div class="head-row rv">
+      <div>
+        <p class="eyebrow">Жизнь бренда</p>
+        <h2>Подиум, бэкстейдж, <em>обложки</em></h2>
+      </div>
+      <p class="lead">Live-Show в Милане дважды в год, показы Chanel, Chapurin, Alena Akhmadullina, Yanina, YANA в России, публикации в Vogue Italia, Elle, Forbes и «РБК Стиль». Нажмите на кадр, чтобы открыть его крупно.</p>
+    </div>
+    <div class="full-bleed rv">
+      <div class="carousel story" data-key="life"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ОТЗЫВЫ ============ -->
+<section class="sec alt" id="stories">
+  <div class="wrap">
+    <div class="head-row rv">
+      <div>
+        <p class="eyebrow">Отзывы</p>
+        <h2>Мастера <em>о&nbsp;работе</em> в&nbsp;Aldo Coppola</h2>
+      </div>
+      <p class="lead">Те, кто пришёл с именем и опытом, и те, кто работает у нас много лет.</p>
+    </div>
+    <div class="quotes rv tbd" title="Отзывы взяты с лендинга «Топ-стилист». Подтвердить имена и согласие мастеров; добавить отзывы косметологов и администраторов">
+      <figure><blockquote>«Перешла из частной студии. Через три месяца моя запись была заполнена на две недели вперёд, а доход вырос».</blockquote><figcaption><i>А</i><span><b>Анна К.</b>Топ-стилист · ТЦ Времена года · с 2022</span></figcaption></figure>
+      <figure><blockquote>«Работаю здесь больше пятнадцати лет. Мои клиенты ходят ко мне годами, и меня всё устраивает».</blockquote><figcaption><i>М</i><span><b>Марина С.</b>Колорист · Жуковка · с 2008</span></figcaption></figure>
+      <figure><blockquote>«Пришёл с именем, а здесь получил показы, съёмки и поездки в Милан».</blockquote><figcaption><i>Д</i><span><b>Дмитрий Л.</b>Топ-стилист · с 2019</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
 <!-- ============ УСЛОВИЯ ============ -->
-<section class="sec alt" id="benefits">
+<section class="sec" id="benefits">
   <div class="wrap">
     <div class="head-row rv">
       <div>
@@ -501,20 +706,20 @@ body.draft .tbd{background:rgba(255,196,0,.3);box-shadow:0 0 0 2px rgba(255,196,
 </section>
 
 <!-- ============ КАК МЫ НАНИМАЕМ ============ -->
-<section class="sec" id="hiring">
+<section class="sec alt" id="hiring">
   <div class="wrap">
     <div class="head-row rv">
       <div>
         <p class="eyebrow">Как мы нанимаем</p>
         <h2>Четыре шага <em>до&nbsp;первого дня</em></h2>
       </div>
-      <p class="lead">Без длинных анкет. Знакомство конфиденциально: ваш текущий работодатель о нём не узнает.</p>
+      <p class="lead">Без длинных анкет. Знакомство конфиденциально: ваш текущий работодатель о нём не узнает. Первая встреча ни к чему не обязывает.</p>
     </div>
     <div class="route rv tbd" title="Сверить с реальным процессом найма по каждому направлению">
       <div><b>Отклик</b><span>На странице вакансии, на hh.ru или письмом в HR.</span></div>
       <div><b>Звонок</b><span>Короткий разговор об опыте и ожиданиях.</span></div>
-      <div><b>Встреча</b><span>В салоне или офисе: покажем рабочее место и познакомим с командой.</span></div>
-      <div><b>Предложение</b><span>Конкретные условия, график и план обучения.</span></div>
+      <div><b>Встреча в салоне</b><span>Покажем рабочее место, материалы и инструменты, познакомим с командой.</span></div>
+      <div><b>Предложение</b><span>Конкретные условия, салон, график и план обучения.</span></div>
     </div>
   </div>
 </section>
@@ -561,10 +766,14 @@ body.draft .tbd{background:rgba(255,196,0,.3);box-shadow:0 0 0 2px rgba(255,196,
 const CONFIG = {
   draft: true,   // true — пометки «уточнить» и заглушки-подсказки; false — для публикации
   links: {
-    topStylist: 'https://2muchdesign-sign.github.io/HRtopstylist/'   // прототип; при публикации — адрес лендинга на сайте
+    topStylist: 'https://2muchdesign-sign.github.io/aldo-coppola-top-stylist-v2/'   // прототип; при публикации — адрес лендинга на сайте
   }
 };
-const MEDIA_BASE = 'https://2muchdesign-sign.github.io/HRtopstylist/media/';    // папка с фото и видео
+// Фото и видео берутся из папки лендинга «Топ-стилист» v2.
+// Локально — соседняя папка; на GitHub Pages — опубликованный лендинг v2.
+const MEDIA_BASE = location.protocol === 'file:' || /^(localhost|127\.0\.0\.1)$/.test(location.hostname)
+  ? '../aldo-coppola-top-stylist-v2/media/'
+  : 'https://2muchdesign-sign.github.io/aldo-coppola-top-stylist-v2/media/';
 
 /* ================================================================
    НАПРАВЛЕНИЯ И ВАКАНСИИ
@@ -574,15 +783,14 @@ const MEDIA_BASE = 'https://2muchdesign-sign.github.io/HRtopstylist/media/';    
 const DIRECTIONS = [
   { key: 'salon',  label: 'Парикмахерский зал' },
   { key: 'cosmo',  label: 'Косметология' },
-  { key: 'service',label: 'Сервис и администраторы' },
-  { key: 'office', label: 'Офис' }
+  { key: 'service',label: 'Сервис и администраторы' }
 ];
 const VACANCIES = [
   {
     cat: 'salon',
     title: 'Топ-стилист',
-    text: 'Для мастеров с именем и опытом в премиум-сегменте. Обучение в Милане, люкс-материалы и гости, которые ходят к своему мастеру годами.',
-    tags: ['15–30 тыс ₽ в день', 'Москва и Подмосковье', 'Обучение в Милане'],
+    text: 'Для мастеров с именем и опытом в премиум-сегменте. Обучение в Милане, люкс-материалы и клиенты, которые ходят к своему мастеру годами.',
+    tags: ['15–30 тыс ₽ в день', 'График 2/2', 'Обучение в Милане'],
     url: () => CONFIG.links.topStylist,
     hot: true
   }
@@ -591,7 +799,20 @@ const VACANCIES = [
 ];
 
 /* ================================================================
-   МЕДИА (файлы из папки лендинга)
+   САЛОНЫ (названия — как принято в компании)
+   ================================================================ */
+const SALONS = [
+  { area: 'Рублёвка',    name: 'Барвиха Luxury Village', text: 'Опорный салон бренда. Самая состоятельная аудитория региона.', addr: 'Рублёво-Успенское шоссе, 114', img: 'salons/barvikha-photo-1.jpg' },
+  { area: 'Рублёвка',    name: 'Жуковка',          text: 'Арт-директор — Альберто Санвидо. Постоянные клиенты из соседних посёлков.', addr: 'Рублёво-Успенское шоссе, 204', img: 'salons/zhukovka-1.jpg' },
+  { area: 'Новая Рига',  name: 'Юнимолл',          text: 'Арт-директор — Робертино Роди. Коттеджные посёлки Новорижского направления.', addr: 'Новорижское шоссе, 6 км от МКАД', img: 'salons/unimall-1.jpg' },
+  { area: 'Кутузовский', name: 'ТЦ Времена года',  text: 'Арт-директор — Джузеппе Кастальди. Один из самых статусных адресов Москвы.', addr: 'Кутузовский проспект, 48', img: 'salons/vremena-photo-1.jpg' },
+  { area: 'Центр',       name: 'Лотте Отель',      text: 'Постояльцы пятизвёздочного отеля и жители Арбата, Хамовников, Пресни.', addr: 'Новинский бульвар, 8/2', img: 'salons/lotte-1.jpg' },
+  { area: 'Центр',       name: 'БЦ ВЭБ РФ',        text: 'Деловой центр города: клиенты, которые ценят точность и время.', addr: 'Новинский бульвар, 31', img: 'salons/novinsky-photo-1.jpg' },
+  { area: 'Центр',       name: 'ТЦ BoscoVesna',    text: 'Арт-директор — Джампаоло Марини. Новый Арбат и соседние районы.', addr: 'Новый Арбат, 19, стр. 1', img: 'salons/vesna-1.jpg' }
+];
+
+/* ================================================================
+   МЕДИА (пути относительно MEDIA_BASE)
    Фото:  { src: 'academy/academy-cover.jpg', caption: 'Подпись' }
    Видео: { video: 'brand/press-1.mp4', poster: 'brand/press-1.jpg', caption: 'Подпись' }
    ================================================================ */
@@ -599,15 +820,32 @@ const MEDIA = {
   logo:  'brand/logo.png',
   hero:  'brand/press-3.jpg',
   about: 'brand/press-2.jpg',
-  life: [
-    { video: 'brand/press-1.mp4', poster: 'brand/press-1.jpg', caption: 'Пресс-кампания Aldo Coppola 2026' },
-    { src: 'academy/academy-cover.jpg', caption: 'Академия Aldo Coppola' },
+  team: [
+    { src: 'team/team-moscow.jpg', caption: 'Команда Aldo Coppola' },
+    { src: 'team/team-salon.jpg', caption: 'Команда салона' },
+    { src: 'team/master-at-work.jpg', caption: 'Мастер за работой' },
+    { video: 'team/training-novinsky.mp4', poster: 'team/training-novinsky.jpg', caption: 'Обучение окрашиванию с арт-директором, БЦ ВЭБ РФ' }
+  ],
+  comfort: [
+    { src: 'space/workplace-vremena.jpg', caption: 'Рабочие места, ТЦ Времена года' },
     { src: 'guests/parallel-service.jpg', caption: 'Параллельный сервис' },
-    { src: 'creative/accessories-cover.jpg', caption: 'Работа на авторских аксессуарах' },
-    { video: 'brand/press-2.mp4', poster: 'brand/press-2.jpg', caption: 'Пресс-кампания Aldo Coppola 2026' },
-    { src: 'space/hair-care.jpg', caption: 'Авторские программы ухода' },
-    { src: 'creative/herbal-cover.jpg', caption: 'Окрашивание натуральными травами' },
-    { src: 'academy/academy-program.jpg', caption: 'Чему учат в Академии' }
+    { src: 'space/workplace-zhukovka.jpg', caption: 'Зал, Жуковка' },
+    { src: 'guests/vip-vremena.jpg', caption: 'Кабинет, ТЦ Времена года' },
+    { src: 'space/wash-barvikha.jpg', caption: 'Мойки, Барвиха' },
+    { src: 'guests/cafe-zhukovka.jpg', caption: 'Кафе для клиентов, Жуковка' },
+    { src: 'space/workplace-unimall.jpg', caption: 'Рабочее место, Юнимолл' },
+    { src: 'guests/lounge-barvikha.jpg', caption: 'Зона ожидания, Барвиха' }
+  ],
+  life: [
+    { video: 'shows/yana-show-1.mp4', poster: 'shows/yana-show-1.jpg', caption: 'Aldo Coppola for YANA: показ и бэкстейдж' },
+    { src: 'shows/backstage.jpg', caption: 'Live-Show Chill Couture: бэкстейдж' },
+    { video: 'growth/milan-show.mp4', poster: 'growth/milan-show.jpg', caption: 'Live-Show новых коллекций в Милане' },
+    { src: 'shows/runway.jpg', caption: 'Live-Show Chill Couture: выход моделей' },
+    { src: 'history/covers-vogue.jpg', caption: 'Работы мастеров бренда в Vogue' },
+    { video: 'creative/barvikha-art.mp4', poster: 'creative/barvikha-art.jpg', caption: 'Арт-съёмка Aldo Coppola' },
+    { src: 'growth/teatro-lirico-show.jpg', caption: 'Accademia Aldo Coppola Live в Teatro Lirico' },
+    { video: 'shows/ref.mp4', poster: 'shows/ref.jpg', caption: '(REF) × Aldo Coppola: образы для спикеров' },
+    { src: 'academy/academy-cover.jpg', caption: 'Академия Aldo Coppola' }
   ]
 };
 
@@ -620,6 +858,17 @@ const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
 $('logoImg').src = m(MEDIA.logo);
 $('heroImg').src = m(MEDIA.hero);
 $('aboutImg').src = m(MEDIA.about);
+
+/* ---------- салоны: карточки ---------- */
+$('salonGrid').innerHTML = SALONS.map(s => `
+  <article class="salon">
+    <img src="${esc(m(s.img))}" alt="${esc('Салон Aldo Coppola: ' + s.name)}" loading="lazy">
+    <div class="in"><small>${esc(s.area)}</small><h3>${esc(s.name)}</h3><p>${esc(s.text)}</p><span class="addr">${esc(s.addr)}</span></div>
+  </article>`).join('') + `
+  <a class="salon cta" href="#vacancies">
+    <div><h3>Выберите салон рядом с&nbsp;домом</h3><p>Обсудим на встрече, где вам удобнее работать. Переход между салонами сети тоже возможен.</p></div>
+    <span class="go">К вакансиям ${ARROW}</span>
+  </a>`;
 
 /* ---------- vacancies ---------- */
 const countIn = key => VACANCIES.filter(v => key === 'all' || v.cat === key).length;
@@ -672,7 +921,7 @@ const ICON_PREV = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" st
 const ICON_NEXT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5l7 7-7 7"/></svg>';
 const ICON_PHOTO = '<svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="5" y="12" width="38" height="28" rx="2"/><circle cx="24" cy="26" r="8"/><path d="M17 12l3-5h8l3 5"/></svg>';
 const ICON_VIDEO = '<svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="24" cy="24" r="19"/><path d="M20 16l12 8-12 8z"/></svg>';
-const TONES = [['#F3EFEA','#E3DDD6'],['#F8ECEA','#EBD5D2'],['#F1EEEA','#DFD9D2']];
+const TONES = [['#F4F3F1','#E6E4E1'],['#EFEEEC','#DEDCD9'],['#F4F3F1','#E2E0DD']];
 
 function hintsFor(el){
   return (el.dataset.hints || '').split('|').filter(Boolean).map(h => {
@@ -785,6 +1034,7 @@ if (!CONFIG.draft){ setDraft(false); dt.remove(); } else { setDraft(true); dt.on
 (() => {
   const track = $('tourTrack'); if (!track) return;
   const slides = [...track.querySelectorAll('.tr-slide')];
+  slides.forEach(s => { s.dataset.video = m('tour/' + s.dataset.file + '.mp4'); s.querySelector('img').src = m('tour/' + s.dataset.file + '.jpg'); });
   const tabs = [...document.querySelectorAll('#tourTabs button')];
   const prev = $('tourPrev'), next = $('tourNext');
   let cur = 0;
@@ -832,7 +1082,7 @@ if (!CONFIG.draft){ setDraft(false); dt.remove(); } else { setDraft(true); dt.on
     if (best !== cur){ stopAll(null); setActive(best); }
   }, 80); });
   if ('IntersectionObserver' in window)
-    new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) stopAll(null); }), { threshold: 0 }).observe($('tour'));
+    new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) stopAll(null); }), { threshold: 0 }).observe($('salons'));
   setActive(0);
 })();
 </script>
