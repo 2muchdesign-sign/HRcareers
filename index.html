@@ -45,7 +45,7 @@ button{font:inherit;color:inherit}
 .btn:hover .arr{transform:translateX(4px)}
 .btn.sm{padding:10px 16px;font-size:11px}
 .btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
-.btn.ghost:hover{background:var(--ink);color:#fff}
+.btn.ghost:hover{background:var(--red);color:#fff;box-shadow:none}
 
 /* ---------- cover ---------- */
 .cover{padding:28px 0 0}
@@ -64,13 +64,12 @@ button{font:inherit;color:inherit}
 .dirs-l{display:block;margin-top:32px;padding-top:14px;border-top:1px solid var(--line)}
 .dirs{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .dirs a{border:1px solid rgba(46,46,48,.22);background:#fff;padding:8px 12px;font-size:13px;font-weight:600;text-decoration:none;transition:background .2s,color .2s,border-color .2s}
-.dirs a:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.dirs a:hover{background:var(--red);color:#fff;border-color:var(--red)}
 
 /* photo stage (аналог «экрана» Indoor TV) */
 .photo-stage{position:relative;aspect-ratio:4/5;background:linear-gradient(160deg,#F4F4F5 0%,#E9E9EC 100%);overflow:hidden}
 .photo-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%}
 .photo-stage::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.28) 0%,rgba(0,0,0,0) 22%,rgba(0,0,0,0) 60%,rgba(0,0,0,.35) 100%);pointer-events:none}
-.mirror-arch{position:absolute;z-index:2;top:9%;left:50%;transform:translateX(-50%);width:66%;height:80%;border:1px solid rgba(255,255,255,.55);border-radius:999px 999px 0 0;pointer-events:none}
 .stage-cap{position:absolute;top:16px;left:18px;right:18px;display:flex;justify-content:space-between;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.9);z-index:3}
 .hero-card{position:absolute;z-index:3;left:18px;right:18px;bottom:18px;background:var(--red);color:#fff;text-decoration:none;padding:18px 20px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;transition:background .25s}
 .hero-card:hover{background:var(--red-deep)}
@@ -81,10 +80,10 @@ button{font:inherit;color:inherit}
 @keyframes blink{50%{opacity:.2}}
 
 /* ticker */
-.ticker{background:var(--ink-2);color:#fff;overflow:hidden;white-space:nowrap;padding:16px 0}
-.ticker-track{display:inline-flex;gap:48px;animation:marquee 40s linear infinite;font-family:var(--serif);font-size:22px;font-style:italic}
+.ticker{background:var(--red);color:#fff;overflow:hidden;white-space:nowrap;padding:16px 0}
+.ticker-track{display:inline-flex;gap:48px;animation:marquee 46s linear infinite;font-family:var(--serif);font-size:22px;font-style:italic}
 .ticker-track span{display:inline-flex;align-items:center;gap:48px}
-.ticker-track span::after{content:"✦";font-style:normal;color:var(--red);font-size:14px}
+.ticker-track span::after{content:"✦";font-style:normal;color:rgba(255,255,255,.6);font-size:14px}
 @keyframes marquee{to{transform:translateX(-50%)}}
 
 /* ---------- sections ---------- */
@@ -103,19 +102,19 @@ section.mist{background:var(--mist)}
 .editorial .col p{color:#55555a;font-size:15.5px}
 .editorial .col .kicker{display:block;border-top:1px solid var(--ink);padding-top:14px}
 .dropcap::first-letter{font-family:var(--serif);float:left;font-size:4.6em;line-height:.82;padding:6px 10px 0 0;color:var(--red);font-weight:700}
-.pull{grid-column:2 / -1;margin-top:64px;padding:48px 0 0;border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:48px;align-items:end}
-.pull figure{margin:0;position:relative}
-.pull figure img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;background:var(--mist)}
-.pull figure figcaption{margin-top:10px;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--grey)}
-.pull .q{font-family:var(--serif);font-size:120px;line-height:.7;color:var(--red);height:60px}
-.pull blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(26px,3.4vw,44px);line-height:1.18;letter-spacing:-.01em;max-width:22ch;margin-top:12px}
+.pull{grid-column:2 / -1;margin-top:64px;padding:48px 0 0;border-top:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:start}
+.pull .q{font-family:var(--serif);font-size:120px;line-height:.7;color:var(--red)}
+.pull blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(26px,3.4vw,44px);line-height:1.18;letter-spacing:-.01em;max-width:24ch}
+.press{margin:72px 0 0 240px}
+.press-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;border-top:2px solid var(--red);padding-top:12px;margin-bottom:22px}
+.press-note{font-size:12px;color:var(--grey)}
 .pull cite{display:block;margin-top:22px;font-style:normal;font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--grey)}
 
 /* ---------- vacancies (как «пакеты» Indoor TV) ---------- */
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
 .filters button{border:1px solid rgba(46,46,48,.22);background:#fff;padding:9px 14px;font-size:14px;font-weight:600;cursor:pointer;display:inline-flex;gap:10px;align-items:baseline;transition:all .2s}
 .filters button:hover{border-color:var(--ink)}
-.filters button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.filters button[aria-pressed="true"]{background:var(--red);color:#fff;border-color:var(--red)}
 .filters button i{font-style:italic;font-family:var(--serif);font-weight:400;font-size:14px;color:var(--red)}
 .filters button[aria-pressed="true"] i{color:#fff;opacity:.7}
 .packs{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
@@ -138,7 +137,7 @@ a.pack:hover{transform:translateY(-6px);box-shadow:0 30px 50px -30px rgba(0,0,0,
 .pack.feat .meta{border-color:rgba(255,255,255,.35)}
 .pack.feat .ask .go{color:#fff;border-color:#fff}
 a.pack.feat:hover{background:var(--red-deep)}
-.pack .ribbon{position:absolute;top:0;right:28px;background:var(--ink-2);color:#fff;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:8px 12px}
+.pack .ribbon{position:absolute;top:0;right:28px;background:#fff;color:var(--red);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:8px 12px}
 .pack.other{background:transparent;box-shadow:inset 0 0 0 1px rgba(46,46,48,.22)}
 .pack.other h3{font-size:clamp(32px,3vw,42px)}
 .pack.other .ask{flex-direction:column;align-items:flex-start;gap:14px}
@@ -189,7 +188,7 @@ a.pack.feat:hover{background:var(--red-deep)}
 .cnav .bar{flex:1;height:1px;background:var(--line);position:relative;overflow:hidden;margin-right:8px}
 .cnav .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--red);transition:width .3s,left .3s}
 .arrow{width:52px;height:52px;border-radius:50%;border:1px solid var(--ink);background:transparent;color:var(--ink);font-size:18px;cursor:pointer;transition:background .2s,color .2s;flex:none}
-.arrow:hover{background:var(--ink);color:#fff}
+.arrow:hover{background:var(--red);border-color:var(--red);color:#fff}
 .arrow:disabled{opacity:.25;cursor:default;background:transparent;color:var(--ink)}
 .carousel.tri{--per:3}
 .carousel.story{--ratio:9/14;--per:4.2}
@@ -203,7 +202,7 @@ a.pack.feat:hover{background:var(--red-deep)}
 .tr-track::-webkit-scrollbar{display:none}
 .tr-slide{flex:0 0 min(78vw,980px);scroll-snap-align:center;margin:0;transition:opacity .5s}
 .tr-slide:not(.active){opacity:.45}
-.tr-frame{position:relative;aspect-ratio:16/9;background:var(--ink-2);overflow:hidden;cursor:pointer}
+.tr-frame{position:relative;aspect-ratio:16/9;background:var(--mist);overflow:hidden;cursor:pointer}
 .tr-frame img,.tr-frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .tr-frame img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
 .tr-frame:hover img{transform:scale(1.04)}
@@ -227,33 +226,24 @@ a.pack.feat:hover{background:var(--red-deep)}
 .tr-count{font-family:var(--serif);font-style:italic;font-size:17px;margin-right:12px}
 
 /* ---------- salons (сетка тёмного разворота) ---------- */
-.spread{background:var(--ink-2);color:#fff}
-.spread .sec-head h2{color:#fff}
-.spread .sec-head .dek{color:rgba(255,255,255,.6)}
-.spread .sec-no b{color:rgba(255,255,255,.5)}
-.salons{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.18);border-top:1px solid rgba(255,255,255,.18);border-bottom:1px solid rgba(255,255,255,.18)}
-.salon{background:var(--ink-2);display:flex;flex-direction:column}
-.salon .pic{aspect-ratio:4/3;overflow:hidden;background:#2a2a2d}
-.salon .pic img{width:100%;height:100%;object-fit:cover;opacity:.9;transition:transform 1.2s cubic-bezier(.2,.7,.2,1),opacity .4s}
-.salon:hover .pic img{transform:scale(1.04);opacity:1}
+.spread{background:var(--mist)}
+.salons{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.salon{background:#fff;display:flex;flex-direction:column}
+.salon .pic{aspect-ratio:4/3;overflow:hidden;background:var(--mist)}
+.salon .pic img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.salon:hover .pic img{transform:scale(1.04)}
 .salon .in{padding:22px 24px 28px;display:flex;flex-direction:column;flex:1}
 .salon .idx{font-family:var(--serif);font-style:italic;color:var(--red);font-size:15px}
 .salon h3{font-family:var(--serif);font-weight:400;font-size:clamp(26px,2.3vw,32px);line-height:1.05;margin:8px 0 4px}
-.salon .area{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:600}
-.salon p{margin-top:14px;font-size:14px;color:rgba(255,255,255,.7)}
-.salon .addr{margin-top:auto;padding-top:16px;font-size:12.5px;color:rgba(255,255,255,.55)}
+.salon .area{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--grey);font-weight:600}
+.salon p{margin-top:14px;font-size:14px;color:#55555a}
+.salon .addr{margin-top:auto;padding-top:16px;font-size:12.5px;color:var(--grey);border-top:1px solid var(--line);margin-top:auto}
 .salon.cta{background:var(--red);color:#fff;text-decoration:none;justify-content:space-between;gap:24px;padding:30px 26px 34px;transition:background .3s}
 .salon.cta:hover{background:var(--red-deep)}
 .salon.cta h3{font-size:clamp(28px,2.6vw,36px)}
 .salon.cta h3 em{font-style:italic}
 .salon.cta p{color:rgba(255,255,255,.85)}
 .salon.cta .go{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid #fff;padding-bottom:4px;align-self:flex-start}
-.spread .specs{border-color:rgba(255,255,255,.2)}
-.spread .spec+.spec{border-left-color:rgba(255,255,255,.2)}
-.spread .spec span,.spread .spec b small{color:rgba(255,255,255,.6)}
-.spread .spec.hl span,.spread .spec.hl b small{color:rgba(255,255,255,.85)}
-.spread .cond{border-top-color:rgba(255,255,255,.35)}
-.spread .cond p{color:rgba(255,255,255,.65)}
 
 /* ---------- comfort ---------- */
 .lists{display:grid;grid-template-columns:200px 1fr 1fr;gap:40px}
@@ -264,21 +254,21 @@ a.pack.feat:hover{background:var(--red-deep)}
 
 /* ---------- growth: путь стилиста ---------- */
 .ladder{margin-top:72px}
-.ladder .kicker{display:block;margin-bottom:18px;color:rgba(255,255,255,.55)}
-.ladder ol{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(255,255,255,.2)}
+.ladder .kicker{display:block;margin-bottom:18px;color:var(--grey)}
+.ladder ol{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ink);background:#fff}
 .ladder li{padding:26px 24px 30px;position:relative}
-.ladder li+li{border-left:1px solid rgba(255,255,255,.2)}
-.ladder li:first-child{background:var(--red)}
-.ladder li em{font-family:var(--serif);font-size:15px;color:rgba(255,255,255,.6)}
+.ladder li+li{border-left:1px solid var(--ink)}
+.ladder li:first-child{background:var(--red);color:#fff}
+.ladder li em{font-family:var(--serif);font-size:15px;color:var(--red)}
 .ladder li:first-child em{color:rgba(255,255,255,.85)}
 .ladder li b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(26px,2.6vw,34px);line-height:1.05;margin:10px 0 8px}
-.ladder li span{font-size:13.5px;color:rgba(255,255,255,.65)}
+.ladder li span{font-size:13.5px;color:#55555a}
 .ladder li:first-child span{color:rgba(255,255,255,.88)}
-.deal{margin-top:64px;display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center;padding:30px 36px;border-left:3px solid var(--red);background:rgba(255,255,255,.04)}
+.deal{margin-top:64px;display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center;padding:30px 36px;border-left:3px solid var(--red);background:#fff}
 .deal .big{font-family:var(--serif);font-size:clamp(48px,6vw,84px);line-height:.9;color:var(--red);letter-spacing:-.03em;white-space:nowrap}
-.deal .big small{display:block;font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:12px}
-.deal p{font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.4;color:rgba(255,255,255,.8)}
-.deal a{color:#fff;text-decoration:none;border-bottom:1px solid var(--red)}
+.deal .big small{display:block;font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--grey);margin-bottom:12px}
+.deal p{font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.4;color:#55555a}
+.deal a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--red)}
 .deal a:hover{color:var(--red)}
 
 /* ---------- stories ---------- */
@@ -294,15 +284,16 @@ a.pack.feat:hover{background:var(--red-deep)}
 .bens .spacer{grid-row:span 2}
 
 /* ---------- final: найм + контакты ---------- */
-.apply{background:var(--ink-2);color:#fff}
+.apply{background:var(--red);color:#fff}
+.apply .sec-no{color:#fff;border-top-color:#fff}
 .apply-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(40px,6vw,96px);align-items:start}
-.apply .sec-no b{color:rgba(255,255,255,.5)}
+.apply .sec-no b{color:rgba(255,255,255,.75)}
 .apply h2{font-family:var(--serif);font-weight:400;font-size:clamp(44px,5.6vw,80px);line-height:.95;letter-spacing:-.03em;margin-top:28px}
-.apply h2 em{color:var(--red)}
-.apply .lead{margin-top:24px;font-size:17px;color:rgba(255,255,255,.7);max-width:42ch}
-.steps{margin-top:40px;border-top:1px solid rgba(255,255,255,.18)}
-.steps li{list-style:none;display:grid;grid-template-columns:44px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.18);font-size:15px;color:rgba(255,255,255,.85)}
-.steps li > b{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--red)}
+.apply h2 em{color:#fff}
+.apply .lead{margin-top:24px;font-size:17px;color:rgba(255,255,255,.85);max-width:42ch}
+.steps{margin-top:40px;border-top:1px solid rgba(255,255,255,.35)}
+.steps li{list-style:none;display:grid;grid-template-columns:44px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.35);font-size:15px;color:rgba(255,255,255,.9)}
+.steps li > b{font-family:var(--serif);font-style:italic;font-weight:400;color:rgba(255,255,255,.75)}
 .steps li span b{color:#fff;font-weight:600}
 .box{background:#fff;color:var(--ink);padding:clamp(28px,4vw,48px)}
 .box h3{font-family:var(--serif);font-size:clamp(30px,3vw,40px);font-weight:400;line-height:1.1;margin-top:16px}
@@ -316,23 +307,23 @@ a.pack.feat:hover{background:var(--red-deep)}
 .contacts .arr{font-size:20px;color:var(--red)}
 .box .btn{margin-top:28px;width:100%;justify-content:center;padding:18px 24px;font-size:13px}
 
-footer{background:var(--ink-2);color:rgba(255,255,255,.55);font-size:12px;padding:32px 0;border-top:1px solid rgba(255,255,255,.12)}
+footer{background:#fff;color:var(--grey);font-size:12px;padding:32px 0;border-top:1px solid var(--line)}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;letter-spacing:.08em}
-footer .brand{color:#fff;font-size:16px}
-footer a{color:#fff}
+footer .brand{color:var(--ink);font-size:16px}
+footer a{color:var(--ink)}
 
 /* ---------- lightbox ---------- */
-.lb{position:fixed;inset:0;background:rgba(27,27,29,.97);z-index:100;display:none;align-items:center;justify-content:center;padding:56px 16px}
+.lb{position:fixed;inset:0;background:rgba(244,244,245,.98);z-index:100;display:none;align-items:center;justify-content:center;padding:56px 16px}
 .lb.on{display:flex}
 .lb .stage{max-width:min(1200px,100%);max-height:100%;display:flex;align-items:center;justify-content:center}
 .lb img,.lb video{max-height:calc(100vh - 112px);max-width:100%;object-fit:contain}
 .lb .ph-big{width:min(520px,90vw);aspect-ratio:9/14;position:relative}
-.lb button{position:absolute;background:none;border:0;color:#fff;cursor:pointer;padding:12px}
+.lb button{position:absolute;background:none;border:0;color:var(--ink);cursor:pointer;padding:12px}
 .lb button:hover{color:var(--red)}
 .lb .x{top:10px;right:14px;font-size:34px;line-height:1}
 .lb .lp{left:8px;top:50%;transform:translateY(-50%);font-size:26px}
 .lb .ln{right:8px;top:50%;transform:translateY(-50%);font-size:26px}
-.lb .lcap{position:absolute;bottom:16px;left:0;right:0;text-align:center;color:rgba(255,255,255,.6);font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:0 16px}
+.lb .lcap{position:absolute;bottom:16px;left:0;right:0;text-align:center;color:var(--grey);font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:0 16px}
 
 /* ---------- mobile sticky cta ---------- */
 .m-cta{display:none}
@@ -357,6 +348,7 @@ body.draft .tbd{outline:2px solid rgba(255,196,0,.7);outline-offset:4px;cursor:h
   .cover-stage{grid-column:2 / 3;grid-row:2 / 4}
   .editorial,.split,.lists{grid-template-columns:1fr 1fr 1fr}
   .editorial .spacer,.split .spacer,.lists .spacer,.bens .spacer{display:none}
+  .press{margin-left:0}
   .split{grid-template-columns:1fr 1fr}
   .lists{grid-template-columns:1fr 1fr}
   .bens{grid-template-columns:repeat(3,1fr)}
@@ -369,7 +361,7 @@ body.draft .tbd{outline:2px solid rgba(255,196,0,.7);outline-offset:4px;cursor:h
   .specs,.ladder ol{grid-template-columns:1fr 1fr}
   .spec:nth-child(3),.ladder li:nth-child(3){border-left:0}
   .spec:nth-child(n+3){border-top:1px solid var(--ink)}
-  .spread .spec:nth-child(n+3),.ladder li:nth-child(n+3){border-top:1px solid rgba(255,255,255,.2)}
+  .ladder li:nth-child(n+3){border-top:1px solid var(--ink)}
 }
 @media (max-width:760px){
   .top .btn{display:none}
@@ -381,8 +373,8 @@ body.draft .tbd{outline:2px solid rgba(255,196,0,.7);outline-offset:4px;cursor:h
   .cover-stage{grid-column:auto;grid-row:auto}
   .coverlines{display:grid;grid-template-columns:1fr 1fr;gap:0 20px}
   .editorial,.split,.lists,.bens,.conds,.quotes{grid-template-columns:1fr;gap:32px}
-  .pull{grid-template-columns:1fr;gap:28px;margin-top:24px}
-  .pull figure{max-width:340px}
+  .pull{grid-template-columns:1fr;gap:0;margin-top:24px}
+  .pull .q{font-size:80px;height:44px}
   .packs{grid-template-columns:1fr}
   .pack.wide{grid-column:auto}
   .pack{min-height:0;padding:30px 22px 26px}
@@ -405,7 +397,7 @@ body.draft .tbd{outline:2px solid rgba(255,196,0,.7);outline-offset:4px;cursor:h
 }
 @media (max-width:480px){
   .ladder ol{grid-template-columns:1fr}
-  .ladder li+li{border-left:0;border-top:1px solid rgba(255,255,255,.2)}
+  .ladder li+li{border-left:0;border-top:1px solid var(--ink)}
 }
 </style>
 </head>
@@ -466,7 +458,6 @@ body.draft .tbd{outline:2px solid rgba(255,196,0,.7);outline-offset:4px;cursor:h
       <div class="cover-stage rv">
         <div class="photo-stage">
           <img id="heroImg" alt="Пресс-кампания Aldo Coppola 2026" fetchpriority="high">
-          <div class="mirror-arch"></div>
           <div class="stage-cap"><span>Пресс-кампания 2026</span><span>Милан · Москва</span></div>
           <a class="hero-card" id="heroCard" href="#vacancies">
             <span><small><i></i>Открыта вакансия</small><b>Топ-стилист</b></span>
@@ -487,8 +478,8 @@ body.draft .tbd{outline:2px solid rgba(255,196,0,.7);outline-offset:4px;cursor:h
 
   <div class="ticker" aria-hidden="true">
     <div class="ticker-track">
-      <span>Милан</span><span>Барвиха</span><span>Жуковка</span><span>Юнимолл</span><span>Времена года</span><span>Лотте Отель</span><span>БЦ ВЭБ РФ</span><span>BoscoVesna</span>
-      <span>Милан</span><span>Барвиха</span><span>Жуковка</span><span>Юнимолл</span><span>Времена года</span><span>Лотте Отель</span><span>БЦ ВЭБ РФ</span><span>BoscoVesna</span>
+      <span>Barvikha Luxury Village</span><span>Жуковка</span><span>ТЦ Юнимолл</span><span>ТЦ Времена года</span><span>Лотте Отель</span><span>БЦ ВЭБ РФ</span><span>ТЦ BoscoVesna</span>
+      <span>Barvikha Luxury Village</span><span>Жуковка</span><span>ТЦ Юнимолл</span><span>ТЦ Времена года</span><span>Лотте Отель</span><span>БЦ ВЭБ РФ</span><span>ТЦ BoscoVesna</span>
     </div>
   </div>
 </section>
@@ -499,8 +490,8 @@ body.draft .tbd{outline:2px solid rgba(255,196,0,.7);outline-offset:4px;cursor:h
     <div class="sec-head rv">
       <div class="sec-no">№ 01<b>О бренде</b></div>
       <div>
-        <h2>Итальянский дом красоты <em>из&nbsp;Милана</em></h2>
-        <p class="dek">Aldo Coppola — школа, которая вывела причёску на подиум и сделала её частью высокой моды. Более 100 центров красоты в Милане, Монте-Карло, Дубае, Дохе, Москве и других городах. В России — с 1996 года.</p>
+        <h2>Итальянские <em>центры красоты</em></h2>
+        <p class="dek">Aldo Coppola вывел причёску на подиум и сделал её частью высокой моды. Более 100 центров красоты в Милане, Монте-Карло, Дубае, Дохе, Москве и других городах. В России — с 1996 года.</p>
       </div>
     </div>
 
@@ -523,11 +514,18 @@ body.draft .tbd{outline:2px solid rgba(255,196,0,.7);outline-offset:4px;cursor:h
       </div>
 
       <div class="pull rv">
-        <figure><img id="aboutImg" alt="Пресс-кампания Aldo Coppola 2026" loading="lazy"><figcaption>Пресс-кампания Aldo Coppola 2026</figcaption></figure>
-        <div>
-          <div class="q">“</div>
-          <blockquote>Работа здесь — часть fashion-индустрии, а&nbsp;не&nbsp;просто услуга.</blockquote>
-        </div>
+        <div class="q">“</div>
+        <blockquote>Работа здесь — часть fashion-индустрии, а&nbsp;не&nbsp;просто услуга.</blockquote>
+      </div>
+    </div>
+
+    <div class="press rv">
+      <div class="press-head">
+        <span class="kicker">Пресс-кампания Aldo Coppola 2026</span>
+        <span class="press-note">Нажмите на кадр, чтобы открыть его крупно</span>
+      </div>
+      <div class="full-bleed">
+        <div class="carousel story" data-key="press"></div>
       </div>
     </div>
   </div>
@@ -665,7 +663,7 @@ body.draft .tbd{outline:2px solid rgba(255,196,0,.7);outline-offset:4px;cursor:h
 </section>
 
 <!-- ============ № 07 РАБОЧЕЕ МЕСТО ============ -->
-<section class="mist" id="comfort">
+<section id="comfort">
   <div class="wrap">
     <div class="sec-head rv">
       <div class="sec-no">№ 07<b>Рабочее место</b></div>
@@ -894,7 +892,14 @@ const SALONS = [
    ================================================================ */
 const MEDIA = {
   hero:  'brand/press-3.jpg',
-  about: 'brand/press-2.jpg',
+  // Пресс-кампания 2026 (блок № 01). Добавить фото: { src: 'media/press/имя.jpg', caption: '…' }
+  // видео: { video: 'media/press/имя.mp4', poster: 'media/press/имя.jpg', caption: '…' }
+  press: [
+    { video: 'media/press/campaign-2026-film.mp4', poster: 'media/press/campaign-2026-film.jpg', caption: 'Пресс-кампания 2026: фильм' },
+    { video: 'brand/press-1.mp4', poster: 'brand/press-1.jpg', caption: 'Пресс-кампания 2026' },
+    { video: 'brand/press-2.mp4', poster: 'brand/press-2.jpg', caption: 'Пресс-кампания 2026' },
+    { video: 'brand/press-3.mp4', poster: 'brand/press-3.jpg', caption: 'Пресс-кампания 2026' }
+  ],
   team: [
     { src: 'team/team-moscow.jpg', caption: 'Команда Aldo Coppola' },
     { src: 'team/team-salon.jpg', caption: 'Команда салона' },
@@ -927,11 +932,11 @@ const MEDIA = {
 /* ---------------------------------------------------------------- */
 const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const m = p => MEDIA_BASE + p;
+// пути, начинающиеся с media/ — собственная папка страницы; остальные — из лендинга v2
+const m = p => /^(https?:|media\/)/.test(p) ? p : MEDIA_BASE + p;
 const pad = n => String(n).padStart(2, '0');
 
 $('heroImg').src = m(MEDIA.hero);
-$('aboutImg').src = m(MEDIA.about);
 
 /* ---------- салоны: карточки ---------- */
 $('salonGrid').innerHTML = SALONS.map((s, i) => `
