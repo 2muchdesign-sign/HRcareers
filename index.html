@@ -67,11 +67,11 @@ button{font:inherit;color:inherit}
 .dirs a:hover{background:var(--red);color:#fff;border-color:var(--red)}
 
 /* photo stage (аналог «экрана» Indoor TV) */
-.photo-stage{position:relative;aspect-ratio:4/5;background:linear-gradient(160deg,#F4F4F5 0%,#E9E9EC 100%);overflow:hidden}
-.photo-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%}
-.photo-stage::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.28) 0%,rgba(0,0,0,0) 22%,rgba(0,0,0,0) 60%,rgba(0,0,0,.35) 100%);pointer-events:none}
-.stage-cap{position:absolute;top:16px;left:18px;right:18px;display:flex;justify-content:space-between;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.9);z-index:3}
-.hero-card{position:absolute;z-index:3;left:18px;right:18px;bottom:18px;background:var(--red);color:#fff;text-decoration:none;padding:18px 20px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;transition:background .25s}
+/* главное фото: кадр кампании без обрезки и без наложений (требование франшизы) */
+.cover-fig{margin:0}
+.cover-fig img{width:100%;height:auto;display:block;background:var(--mist)}
+.cover-fig figcaption{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--grey)}
+.hero-card{margin-top:14px;background:var(--red);color:#fff;text-decoration:none;padding:18px 20px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;transition:background .25s}
 .hero-card:hover{background:var(--red-deep)}
 .hero-card small{display:flex;align-items:center;gap:8px;font-size:9.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.85)}
 .hero-card small i{width:6px;height:6px;border-radius:50%;background:#fff;animation:blink 1.6s infinite}
@@ -191,6 +191,16 @@ a.pack.feat:hover{background:var(--red-deep)}
 .arrow:hover{background:var(--red);border-color:var(--red);color:#fff}
 .arrow:disabled{opacity:.25;cursor:default;background:transparent;color:var(--ink)}
 .carousel.tri{--per:3}
+/* «чистая» галерея для кадров кампании: подписи и значок видео под кадром, фото без обрезки */
+.carousel.clean{--ratio:2/3}
+.carousel.clean .slide{aspect-ratio:auto;overflow:visible;background:none}
+.carousel.clean .frame{position:relative;aspect-ratio:var(--ratio);overflow:hidden;background:#fff}
+.carousel.clean .frame img,.carousel.clean .frame video{position:absolute;inset:0;width:100%;height:100%}
+.carousel.clean .frame img{object-fit:contain}
+.carousel.clean .frame video{object-fit:cover}
+.carousel.clean .slide:hover img,.carousel.clean .slide:hover video{transform:none}
+.cap-b{display:flex;gap:8px;align-items:baseline;padding:10px 0 9px;border-bottom:1px solid var(--line);font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
+.cap-b em{font-style:normal;color:var(--red);white-space:nowrap}
 .carousel.story{--ratio:9/14;--per:4.2}
 .full-bleed{margin-right:calc(-1 * var(--gut))}
 .full-bleed .cnav{padding-right:var(--gut)}
@@ -456,14 +466,14 @@ body.draft .tbd{outline:2px solid rgba(255,196,0,.7);outline-offset:4px;cursor:h
       </div>
 
       <div class="cover-stage rv">
-        <div class="photo-stage">
+        <figure class="cover-fig">
           <img id="heroImg" alt="Пресс-кампания Aldo Coppola 2026" fetchpriority="high">
-          <div class="stage-cap"><span>Пресс-кампания 2026</span><span>Милан · Москва</span></div>
-          <a class="hero-card" id="heroCard" href="#vacancies">
-            <span><small><i></i>Открыта вакансия</small><b>Топ-стилист</b></span>
-            <span class="go">Подробнее →</span>
-          </a>
-        </div>
+          <figcaption><span>Пресс-кампания 2026</span><span>Милан · Москва</span></figcaption>
+        </figure>
+        <a class="hero-card" id="heroCard" href="#vacancies">
+          <span><small><i></i>Открыта вакансия</small><b>Топ-стилист</b></span>
+          <span class="go">Подробнее →</span>
+        </a>
       </div>
 
       <div class="cover-lead">
@@ -525,7 +535,7 @@ body.draft .tbd{outline:2px solid rgba(255,196,0,.7);outline-offset:4px;cursor:h
         <span class="press-note">Нажмите на кадр, чтобы открыть его крупно</span>
       </div>
       <div class="full-bleed">
-        <div class="carousel story" data-key="press"></div>
+        <div class="carousel story clean" data-key="press"></div>
       </div>
     </div>
   </div>
@@ -891,14 +901,23 @@ const SALONS = [
    МЕДИА (пути относительно MEDIA_BASE)
    ================================================================ */
 const MEDIA = {
-  hero:  'brand/press-3.jpg',
+  hero:  'media/press/photo-01.jpg',   // кадр кампании: без наложений и без обрезки
   // Пресс-кампания 2026 (блок № 01). Добавить фото: { src: 'media/press/имя.jpg', caption: '…' }
   // видео: { video: 'media/press/имя.mp4', poster: 'media/press/имя.jpg', caption: '…' }
   press: [
-    { video: 'media/press/campaign-2026-film.mp4', poster: 'media/press/campaign-2026-film.jpg', caption: 'Пресс-кампания 2026: фильм' },
-    { video: 'brand/press-1.mp4', poster: 'brand/press-1.jpg', caption: 'Пресс-кампания 2026' },
-    { video: 'brand/press-2.mp4', poster: 'brand/press-2.jpg', caption: 'Пресс-кампания 2026' },
-    { video: 'brand/press-3.mp4', poster: 'brand/press-3.jpg', caption: 'Пресс-кампания 2026' }
+    { src: 'media/press/photo-01.jpg', caption: 'San Valentine · декабрь 2025' },
+    { src: 'media/press/photo-02.jpg', caption: 'Февраль · март · апрель' },
+    { src: 'media/press/photo-03.jpg', caption: 'Май' },
+    { src: 'media/press/photo-04.jpg', caption: 'Июнь' },
+    { src: 'media/press/photo-05.jpg', caption: 'Июль' },
+    { src: 'media/press/photo-06.jpg', caption: 'Август' },
+    { src: 'media/press/photo-07.jpg', caption: 'Сентябрь' },
+    { src: 'media/press/photo-08.jpg', caption: 'Октябрь' },
+    { src: 'media/press/photo-09.jpg', caption: 'Ноябрь' },
+    { video: 'media/press/campaign-2026-film.mp4', poster: 'media/press/campaign-2026-film.jpg', caption: 'Фильм кампании' },
+    { video: 'brand/press-1.mp4', poster: 'brand/press-1.jpg', caption: 'Ролик кампании' },
+    { video: 'brand/press-2.mp4', poster: 'brand/press-2.jpg', caption: 'Ролик кампании' },
+    { video: 'brand/press-3.mp4', poster: 'brand/press-3.jpg', caption: 'Ролик кампании' }
   ],
   team: [
     { src: 'team/team-moscow.jpg', caption: 'Команда Aldo Coppola' },
@@ -1014,12 +1033,18 @@ function itemsFor(el){
   if (!list.length) return hintsFor(el);
   return CONFIG.draft ? list.concat(hintsFor(el)) : list;
 }
-function slideHTML(it, i, n){
+function slideHTML(it, i, n, clean){
   if (it.placeholder){
     const [a,b] = TONES[i % TONES.length];
     return `<div class="slide" data-i="${i}" style="background:linear-gradient(160deg,${a},${b})">
       <div class="ph"><span class="tag">${esc(it.kind)}</span><span class="n">${pad(i+1)} / ${pad(n)}</span>
       ${/видео/i.test(it.kind) ? ICON_VIDEO : ICON_PHOTO}<span class="hint">${esc(it.hint)}</span></div></div>`;
+  }
+  if (clean){
+    const media = it.video
+      ? `<video src="${esc(it.video)}" ${it.poster ? `poster="${esc(it.poster)}"` : ''} muted loop playsinline preload="none"></video>`
+      : `<img src="${esc(it.src)}" alt="${esc(it.caption || '')}" loading="lazy">`;
+    return `<div class="slide" data-i="${i}"><div class="frame">${media}</div><div class="cap-b">${it.video ? '<em>▶ Видео</em>' : ''}<span>${esc(it.caption || '')}</span></div></div>`;
   }
   const cap = it.caption ? `<div class="cap">${esc(it.caption)}</div>` : '';
   if (it.video) return `<div class="slide" data-i="${i}"><video src="${esc(it.video)}" ${it.poster ? `poster="${esc(it.poster)}"` : ''} muted loop playsinline preload="none"></video><span class="play"></span>${cap}</div>`;
@@ -1031,7 +1056,7 @@ const videoObserver = 'IntersectionObserver' in window ? new IntersectionObserve
 
 function buildCarousel(el){
   const items = itemsFor(el);
-  el.innerHTML = `<div class="track">${items.map((it,i)=>slideHTML(it,i,items.length)).join('')}</div>
+  el.innerHTML = `<div class="track">${items.map((it,i)=>slideHTML(it,i,items.length,el.classList.contains('clean'))).join('')}</div>
     <div class="cnav"><span class="count">01 / ${pad(items.length)}</span><span class="bar"><i></i></span>
     <button type="button" class="arrow prev" aria-label="Назад">←</button>
     <button type="button" class="arrow next" aria-label="Вперёд">→</button></div>`;
